@@ -66,7 +66,7 @@ func errRecover(err *error) {
 			*err = v
 		}
 	case error:
-		if v == io.EOF {
+		if v == io.EOF || v == io.ErrClosedPipe || v == driver.ErrBadConn {
 			*err = driver.ErrBadConn
 		} else {
 			*err = v

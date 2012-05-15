@@ -243,7 +243,7 @@ func (cn *conn) send(m *writeBuf) {
 
 	_, err := cn.c.Write(*m)
 	if err != nil {
-		panic(err)
+		panic(io.ErrClosedPipe)
 	}
 }
 
