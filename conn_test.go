@@ -355,7 +355,6 @@ func TestExecerInterface(t *testing.T) {
 	}
 }
 
-
 // Test on several pq9.1 system, 
 // null value comes before non-null value.
 // 
@@ -372,7 +371,7 @@ func TestNullAndNonNull(t *testing.T) {
 
 	var n sql.NullInt64
 
-    // test null
+	// test null
 	if !r.Next() {
 		if r.Err() != nil {
 			t.Fatal(err)
@@ -389,13 +388,13 @@ func TestNullAndNonNull(t *testing.T) {
 		t.Fatalf("expected n to 0, not %d", n.Int64)
 	}
 
-    // test non-null
-    if !r.Next() {
-        if r.Err() != nil {
-            t.Fatal(err)
-        }
-        t.Fatal("expected row")
-    }
+	// test non-null
+	if !r.Next() {
+		if r.Err() != nil {
+			t.Fatal(err)
+		}
+		t.Fatal("expected row")
+	}
 	if err := r.Scan(&n); err != nil {
 		t.Fatal(err)
 	}
